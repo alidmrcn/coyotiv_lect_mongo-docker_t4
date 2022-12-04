@@ -5,10 +5,10 @@ class Employee {
     this.department = department
     this.title = title
     this.startDate = startDate
-    this.leaveDate = ''
+    this.leaveDate = '' // ? Can I leave it as a string?
     this.status = '' // currently employeed or left
     this.earnedVacationDays = ''
-    this.spentVacations = [[]]
+    this.spentVacations = [[]] // ? How can leave nested array? Such as [spend days and date]
     this.shifts = []
   }
 
