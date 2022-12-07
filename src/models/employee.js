@@ -6,14 +6,10 @@ class Employee {
     this.title = title
     this.startDate = startDate
     this.leaveDate = '' // ? Can I leave it as a string?
-    this.status = '' // ! currently employeed or left, also I wanted add relation with leave date
+    this.status = '' // ! currently employeed or left, also I wanted add relation with the leave date
     this.earnedVacationDays = ''
     this.spentVacations = [[]] // ? How can leave nested array? Such as [spend days and date]
     this.shifts = [] // ? How shall I define dates
-  }
-
-  greet() {
-    console.log(`Hello ${this.name}, welcome to T4`)
   }
 
   calculateEarnedVacation() {
