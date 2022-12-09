@@ -1,3 +1,6 @@
+const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
+
 const Employee = require('./employee')
 const Shift = require('./shift')
 const Incident = require('./incident')

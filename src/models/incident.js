@@ -1,3 +1,6 @@
+const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
+
 class Incident {
   constructor(system, noticeDescription, location) {
     this.system = system

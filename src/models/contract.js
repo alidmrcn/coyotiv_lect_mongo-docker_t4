@@ -1,3 +1,6 @@
+const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
+
 class Contract {
   constructor(contractName, company, signDate, efectiveDate, expireDate) {
     this.contractName = contractName
