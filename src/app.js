@@ -9,7 +9,11 @@ require('./database-connection')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
-const shiftsRouter = require('./routes/shifts')
+const contractsRouter = require('./routes/contracts') // +
+const departmentsRouter = require('./routes/departments') // +
+const employeesRouter = require('./routes/employees') // +
+const incidentsRouter = require('./routes/incidents') // +
+const shiftsRouter = require('./routes/shifts') // +
 
 const app = express()
 
@@ -26,6 +30,10 @@ app.use('/favicon.ico', express.static(path.join(__dirname, 'public', 'images', 
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+app.use('/contractsRouter', contractsRouter) // +
+app.use('/departmentsRouter', departmentsRouter) // +
+app.use('/employeesRouter', employeesRouter) // +
+app.use('/incidentssRouter', incidentsRouter) // +
 app.use('/shifts', shiftsRouter) //
 
 // catch 404 and forward to error handler
