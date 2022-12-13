@@ -1,5 +1,5 @@
 const express = require('express')
-const Shift = require('../models/shift') // + user'i shift yaptim
+const Shift = require('../models/shift')
 
 const router = express.Router()
 
@@ -8,18 +8,32 @@ router.get('/', async (req, res) => {
   res.send(await Shift.find({}).catch(error => console.log('Shifts not found, error: ', error)))
 })
 
-/* GET initialize */
-router.get('/initialize', async (req, res) => {
-  const one = await Shift.create({ shiftno: 1, day: '15/11/2022', period: 'Day' })
-  // const Two = await Shift.create({ shiftno: 2, day: '15/11/2022', period: 'Night' })
-  // const Four = await Shift.create({ shiftno: 4, day: '17/11/2022', period: 'Night' })
-  res.send(one)
+// /* GET initialize */
+// router.get('/initialize', async (req, res) => {
+//   const data = []
+//   const one = await Shift.create({ shiftno: 1, day: '15/11/2022', period: 'Day' })
+//   data.push(one)
+//   const two = await Shift.create({ shiftno: 2, day: '15/11/2022', period: 'Night' })
+//   data.push(two)
+//   const four = await Shift.create({ shiftno: 4, day: '17/11/2022', period: 'Night' })
+//   data.push(four)
+//   res.send(two)
+// })
+router.delete('/deleteall', async (req, res) => {
+  await Shift.deleteMany()
+  res.sendStatus(200)
+})
+
+router.delete('/delete/:id', async (req, res) => {
+  await Shift.findByIdAndDelete(req.params.id)
+  res.sendStatus(200)
 })
 
 /* POST user */
 router.post('/', async (req, res) => {
-  // const createdUser = await User.create(req.body)
-  // res.status(201).send(createdUser)
+  const { shiftno, day, period } = req.body
+  const shift = await Shift.create({ shiftno, day, period })
+  res.send(shift)
 })
 
 module.exports = router
