@@ -4,7 +4,7 @@ const autopopulate = require('mongoose-autopopulate')
 const shiftSchema = new mongoose.Schema({
   shiftno: {
     type: Number,
-    unique: true,
+    // unique: true,
     required: true,
   },
   day: {
