@@ -26,7 +26,7 @@ const employeeSchema = new mongoose.Schema({
   },
   startDate: {
     type: Date,
-    default: new Date(),
+    default: new Date().setHours(0, 0, 0, 0),
     required: true,
   },
 })
