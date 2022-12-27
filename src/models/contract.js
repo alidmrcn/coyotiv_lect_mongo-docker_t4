@@ -1,22 +1,45 @@
 const mongoose = require('mongoose')
 const autopopulate = require('mongoose-autopopulate')
 
-class Contract {
-  constructor(contractName, company, signDate, efectiveDate, expireDate) {
-    this.contractName = contractName
-    this.company = company
-    this.systemsInScope = [] // ? How to add multipal input with constructor method
-    this.sigDate = signDate
-    this.efectiveDate = efectiveDate
-    this.expireDate = expireDate
-    this.autoRenewal = '' // ? How to indicate 'yes' or 'no'
-    this.autoRenewalDate = '' // ! Create formula
-  }
-}
+const contractSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  company: {
+    type: String,
+    required: true,
+  },
+  systemsInScope: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'System',
+      autopopulate: true,
+    },
+  ],
+  signDate: {
+    type: Date,
+    required: true,
+  },
+  effectiveDate: {
+    type: Date,
+    required: true,
+  },
+  expiryDate: {
+    type: Date,
+    required: true,
+  },
+  // this.autoRenewal = '' // ? How to indicate 'yes' or 'no'
+  // this.autoRenewalDate = '' // ! Create formula
+})
 
 // add autorenewal function
 
-module.exports = Contract
+class Contract {}
+contractSchema.loadClass(Contract)
+contractSchema.plugin(autopopulate)
+
+module.exports = mongoose.model('Contract', contractSchema)
 
 // to be added later:
 // - important clauses information section
