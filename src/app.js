@@ -14,6 +14,7 @@ const departmentsRouter = require('./routes/departments') // +
 const employeesRouter = require('./routes/employees') // +
 const incidentsRouter = require('./routes/incidents') // +
 const shiftsRouter = require('./routes/shifts') // +
+const systemsRouter = require('./routes/systems') // +
 
 const app = express()
 
@@ -34,7 +35,8 @@ app.use('/contractsRouter', contractsRouter) // +
 app.use('/departmentsRouter', departmentsRouter) // +
 app.use('/employeesRouter', employeesRouter) // +
 app.use('/incidentssRouter', incidentsRouter) // +
-app.use('/shifts', shiftsRouter) //
+app.use('/shifts', shiftsRouter) // +
+app.use('/systems', systemsRouter) // +
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
