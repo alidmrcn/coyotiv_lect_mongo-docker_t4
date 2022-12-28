@@ -34,7 +34,7 @@ app.use('/users', usersRouter)
 app.use('/contractsRouter', contractsRouter) // +
 app.use('/departmentsRouter', departmentsRouter) // +
 app.use('/employeesRouter', employeesRouter) // +
-app.use('/incidentssRouter', incidentsRouter) // +
+app.use('/incidentsRouter', incidentsRouter) // +
 app.use('/shifts', shiftsRouter) // +
 app.use('/systems', systemsRouter) // +
 
