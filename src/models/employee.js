@@ -15,12 +15,12 @@ const employeeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  department: {
+  departmentIn: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Department',
     autopopulate: true,
   },
-  title: {
+  jobTitle: {
     type: String,
     required: true,
   },
@@ -30,6 +30,14 @@ const employeeSchema = new mongoose.Schema({
     required: true,
   },
 })
+
+/* to be added now:
+    - this.leaveDate = '' // ? Can I leave it as a string?
+    - this.status = '' // ! currently employeed or left, also I wanted add relation with the leave date
+    - this.earnedVacationDays = ''
+    - this.spentVacations = [[]] // ? How can leave nested array? Such as [spend days and date]
+    - this.shifts = [] // ? How shall I define dates
+*/
 
 class Employee {
   //   calculateEarnedVacation() {
@@ -42,19 +50,14 @@ class Employee {
   //     this.shifts.push(shift)
   //   }
   //   }
-  // to be added later:
-  // - salary information
-  // - total payments
-  // - estimated leave compantations
 }
 employeeSchema.loadClass(Employee)
 employeeSchema.plugin(autopopulate)
 
 module.exports = mongoose.model('Employee', employeeSchema)
 
-// ADD NOW
-//     this.leaveDate = '' // ? Can I leave it as a string?
-//     this.status = '' // ! currently employeed or left, also I wanted add relation with the leave date
-//     this.earnedVacationDays = ''
-//     this.spentVacations = [[]] // ? How can leave nested array? Such as [spend days and date]
-//     this.shifts = [] // ? How shall I define dates
+/* to be added later:
+    - salary information
+    - total payments
+    - estimated leave compantations
+*/
