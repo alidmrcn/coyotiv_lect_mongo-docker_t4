@@ -1,8 +1,114 @@
 const mongoose = require('mongoose')
 const autopopulate = require('mongoose-autopopulate')
 
+const incidentSchema = new mongoose.Schema({
+  systemsInScope: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'System',
+      autopopulate: true,
+    },
+  ],
+  noticeDescription: {
+    type: String,
+    required: true,
+  },
+  noticeDate: {
+    type: Date,
+    default: new Date().setHours(0, 0, 0, 0),
+    required: true,
+  },
+  noticeTime: {
+    // ? type: Date,
+    required: true,
+  },
+  noticeBy: {
+    type: String,
+    required: true,
+  },
+  responseDate: {
+    type: Date,
+    required: true,
+  },
+  responseTime: {
+    // ? type: Date,
+    required: true,
+  },
+  incidentType: {
+    // limited selection
+    type: String,
+    required: true,
+  },
+  incidentDescription: {
+    type: String,
+    required: true,
+  },
+  resolutionDate: {
+    type: Date,
+    required: true,
+  },
+  resolutionTime: {
+    // ? type: Date,
+    required: true,
+  },
+  resolutionDescription: {
+    type: String,
+    required: true,
+  },
+  involvedEmployee: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Employee',
+      autopopulate: true,
+    },
+  ],
+  rootCause: {
+    type: String,
+    required: true,
+  },
+  preparedBy: {
+    type: String,
+    required: true,
+  },
+  reportDate: {
+    type: Date,
+    required: true,
+  },
+  reportNo: {
+    // set a rule/formula
+    type: String,
+    unique: true,
+    required: true,
+  },
+})
+
+/* to be added now:
+    - this.incidentPhoto = []
+    - this.resolutionPhoto = []
+    - this.incidentDuration = '' // ! Function is to be added for calculation
+    - this.usedMaterials = []
+    - this.spendtManHour = '' // ! Function is to be added for calculation
+*/
+
 class Incident {
-  constructor(system, noticeDescription, location) {
+  // addIncidentPhoto(photo) {
+  //  this.incidentPhoto.push(photo)
+  // }
+}
+
+incidentSchema.loadClass(Incident)
+incidentSchema.plugin(autopopulate)
+
+module.exports = mongoose.model('Incident', incidentSchema)
+
+/* to be added later:
+    - add other functions
+    - status
+    - improvement actions and plan
+    - 3rd party involment details
+*/
+
+/* Old Codes: 
     this.system = system
     this.noticeDescription = noticeDescription
     this.location = location
@@ -25,20 +131,5 @@ class Incident {
     this.spendtManHour = '' // ! Function is to be added for calculation
     this.reportFilledBy = ''
     this.reportDate = ''
-    this.reportTime = ''
     this.reportNo = ''
-  }
-
-  addIncidentPhoto(photo) {
-    this.incidentPhoto.push(photo)
-  }
-}
-
-// add other functions
-
-module.exports = Incident
-
-// to be added later:
-// - status
-// - improvement actions and plan
-// - 3rd party involment details
+*/
