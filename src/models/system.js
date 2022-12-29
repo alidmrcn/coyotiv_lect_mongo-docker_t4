@@ -3,6 +3,7 @@ const autopopulate = require('mongoose-autopopulate')
 
 const systemSchema = new mongoose.Schema({
   name: {
+    // ? Shall I indicate systemName or name ?
     type: String,
     unique: true,
     required: true,
@@ -12,14 +13,15 @@ const systemSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  relatedCompany: [
+  relatedCompanies: [
+    // ? shall it be plural or singular ?
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Company',
       autopopulate: true,
     },
   ],
-  contracts: [
+  relatedContracts: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Contract',
@@ -33,7 +35,7 @@ class System {}
 systemSchema.loadClass(System)
 systemSchema.plugin(autopopulate)
 
-module.exports = mongoose.model('Department', systemSchema)
+module.exports = mongoose.model('System', systemSchema)
 
 /* to be added later:
     - staff

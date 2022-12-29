@@ -20,6 +20,7 @@ const incidentSchema = new mongoose.Schema({
   },
   noticeTime: {
     // ? type: Date,
+    type: Date,
     required: true,
   },
   noticeBy: {
@@ -32,6 +33,7 @@ const incidentSchema = new mongoose.Schema({
   },
   responseTime: {
     // ? type: Date,
+    type: String,
     required: true,
   },
   incidentType: {
@@ -49,6 +51,7 @@ const incidentSchema = new mongoose.Schema({
   },
   resolutionTime: {
     // ? type: Date,
+    type: String,
     required: true,
   },
   resolutionDescription: {
