@@ -9,6 +9,7 @@ require('./database-connection')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
+const companiesRouter = require('./routes/companies') // +
 const contractsRouter = require('./routes/contracts') // +
 const departmentsRouter = require('./routes/departments') // +
 const employeesRouter = require('./routes/employees') // +
@@ -31,6 +32,7 @@ app.use('/favicon.ico', express.static(path.join(__dirname, 'public', 'images', 
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+app.use('/companiesRouter', companiesRouter) // +
 app.use('/contractsRouter', contractsRouter) // +
 app.use('/departmentsRouter', departmentsRouter) // +
 app.use('/employeesRouter', employeesRouter) // +
