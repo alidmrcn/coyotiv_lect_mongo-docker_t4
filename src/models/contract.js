@@ -3,7 +3,7 @@ const autopopulate = require('mongoose-autopopulate')
 
 const contractSchema = new mongoose.Schema({
   contractName: {
-    // change definition
+    // ? Shall I indicate systemName or name ?
     type: String,
     required: true,
   },
