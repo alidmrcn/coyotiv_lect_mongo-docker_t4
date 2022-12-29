@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const autopopulate = require('mongoose-autopopulate')
 
 const departmentSchema = new mongoose.Schema({
-  name: {
+  departmentName: {
     type: String,
     unique: true,
     required: true,
