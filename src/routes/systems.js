@@ -5,7 +5,7 @@ const router = express.Router()
 
 /* GET contracts listing. */
 router.get('/', async (req, res) => {
-  res.send(await System.find({}).catch(error => console.log('Contracts not found, error: ', error)))
+  res.send(await System.find({}).catch(error => console.log('Systems not found, error: ', error)))
 })
 
 /* GET initialize */
