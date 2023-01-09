@@ -32,11 +32,11 @@ app.use('/favicon.ico', express.static(path.join(__dirname, 'public', 'images', 
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
-app.use('/companiesRouter', companiesRouter) // +
-app.use('/contractsRouter', contractsRouter) // +
-app.use('/departmentsRouter', departmentsRouter) // +
-app.use('/employeesRouter', employeesRouter) // +
-app.use('/incidentsRouter', incidentsRouter) // +
+app.use('/companies', companiesRouter) // +
+app.use('/contracts', contractsRouter) // +
+app.use('/departments', departmentsRouter) // +
+app.use('/employees', employeesRouter) // +
+app.use('/incidents', incidentsRouter) // +
 app.use('/shifts', shiftsRouter) // +
 app.use('/systems', systemsRouter) // +
 
