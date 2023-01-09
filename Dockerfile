@@ -17,7 +17,7 @@ RUN npm install
 # Alternatively "ADD . ." will add all of the project files to the docker container.
 # Note that files listed in .dockerignore won't be included.
 ADD bin ./bin
-ADD src ./src
+#ADD src ./src
 
 # not 'npm run start' now that nodemon is installed for development environment
 CMD ["nodemon"]
