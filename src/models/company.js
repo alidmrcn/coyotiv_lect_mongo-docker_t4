@@ -12,6 +12,7 @@ const companySchema = new mongoose.Schema({
     // ! find different definiton !
     type: String,
     unique: true,
+    required: true,
   },
   contractsSigned: [
     // ? shall it be plural or singular ?
